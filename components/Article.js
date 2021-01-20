@@ -86,7 +86,36 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'boop',
+    date: 'Jan 2st, 2021',
+    firstParagraph: `Its the end of the world as we know it `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'We are all gonna die in 2021',
+    date: 'Jan 2st, 2021',
+    firstParagraph: `Welcome to the Apocalypse `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
+
 ];
 
 /*
@@ -114,3 +143,68 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+const articleMaker = (article)=>{
+
+
+//create article div
+  const articleThumb = document.createElement('div')
+  articleThumb.setAttribute('class','article')
+
+  const artsContainer = document.querySelector('.articles')
+  artsContainer.appendChild(articleThumb)  
+
+//title
+  const title = document.createElement('h2')
+  title.textContent = article.title
+  articleThumb.appendChild(title)
+
+//Date
+  const date= document.createElement('p')
+  date.textContent = article.date
+  articleThumb.appendChild(date)
+
+//Paragraph 1,2,3
+
+const para1 = document.createElement('p')
+para1.textContent = article.firstParagraph;
+articleThumb.appendChild(para1)
+
+const para2 = document.createElement('p')
+para2.textContent = article.secondParagraph;;
+articleThumb.appendChild(para2)
+
+const para3 = document.createElement('p')
+para3.textContent = article.thirdParagraph
+articleThumb.appendChild(para3)
+
+//Span 
+
+const span = document.createElement('span')
+span.className = 'expandButton'
+span.textContent = ' + '
+articleThumb.appendChild(span)
+
+span.addEventListener('click', ()=>{
+
+  console.log('event click')
+
+    if(articleThumb.className==='article'){
+      articleThumb.className='article-open'
+      span.textContent= ' - '
+    }
+    
+    else if (articleThumb.className === 'article-open'){
+      articleThumb.className = 'article'
+      span.textContent = ' + '
+    }
+
+})
+
+
+
+
+return articleThumb
+}
+
+data.forEach(item=>articleMaker(item))

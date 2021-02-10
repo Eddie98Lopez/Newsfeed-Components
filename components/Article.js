@@ -180,9 +180,9 @@ articleThumb.appendChild(para3)
 
 //Span 
 
-const span = document.createElement('span')
+const span = document.createElement('button')
 span.className = 'expandButton'
-span.textContent = ' + '
+span.textContent = 'Expand'
 articleThumb.appendChild(span)
 
 span.addEventListener('click', ()=>{
@@ -191,12 +191,12 @@ span.addEventListener('click', ()=>{
 
     if(articleThumb.className==='article'){
       articleThumb.className='article-open'
-      span.textContent= ' - '
+      span.textContent= 'Minimize'
     }
     
     else if (articleThumb.className === 'article-open'){
       articleThumb.className = 'article'
-      span.textContent = ' + '
+      span.textContent = 'Expand'
     }
 
 })

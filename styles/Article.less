@@ -2,18 +2,14 @@
   margin-top: 95px;
 }
 .article {
+  transition: 1s ease-in;
   margin: 20px 10%;
   padding: 0 2rem;
   border: 1px solid lightgrey;
   border-radius: 10px;
   background-color: white;
   position: relative;
-  max-height: 100px;
   box-shadow: 2px 2px 2px lightgrey;
-
-  p {
-    display: none;
-  }
 
   .date {
     margin: 0;
@@ -36,6 +32,10 @@
     top: 30px;
     right: 2rem;
   }
+
+  p {
+    display: none;
+  }
 }
 
 .article-open {
@@ -47,10 +47,6 @@
   box-shadow: 2px 2px 2px lightgrey;
   transition: ease-out 1.5s;
   animation: expand 1s;
-}
-
-.article-open p {
-  display: block;
 }
 
 @keyframes expand {
@@ -68,4 +64,14 @@ h2 {
   font-size: 28px;
   padding: 0;
   color: black;
+}
+
+.paraContain {
+  transition: height 0.5s ease-in-out;
+  height: 400px;
+}
+
+.paraContain-close {
+  transition: height 0.5s ease-in-out;
+  height: 0px;
 }

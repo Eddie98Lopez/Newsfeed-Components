@@ -70,7 +70,6 @@ menuButton.addEventListener('click', ()=>{
     container.className ='menu'
   }
 
-  console.log('button clicked')
 
 })
 

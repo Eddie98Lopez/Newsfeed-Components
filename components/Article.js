@@ -166,17 +166,21 @@ const articleMaker = (article)=>{
 
 //Paragraph 1,2,3
 
+const paraContain = document.createElement('div')
+articleThumb.appendChild(paraContain)
+paraContain.className = 'paraContain'
+
 const para1 = document.createElement('p')
 para1.textContent = article.firstParagraph;
-articleThumb.appendChild(para1)
+paraContain.appendChild(para1)
 
 const para2 = document.createElement('p')
 para2.textContent = article.secondParagraph;;
-articleThumb.appendChild(para2)
+paraContain.appendChild(para2)
 
 const para3 = document.createElement('p')
 para3.textContent = article.thirdParagraph
-articleThumb.appendChild(para3)
+paraContain.appendChild(para3)
 
 //Span 
 
@@ -191,11 +195,13 @@ span.addEventListener('click', ()=>{
 
     if(articleThumb.className==='article'){
       articleThumb.className='article-open'
+      paraContain.className = 'paraContain'
       span.textContent= 'Minimize'
     }
     
     else if (articleThumb.className === 'article-open'){
       articleThumb.className = 'article'
+      paraContain.className = 'paraContain-close'
       span.textContent = 'Expand'
     }
 
